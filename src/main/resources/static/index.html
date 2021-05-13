@@ -90,13 +90,16 @@ tr:nth-child(even) {
           <th>Email Id</th>
           <th>Address</th>
           <th>Positive Date</th>
-        </tr>
-       
-        <tr>
-          <td>Centro comercial Moctezuma</td>
-          <td>Francisco Chang</td>
-          <td>Mexico</td>
         </tr>       
+        <tr>
+          <td>Full Name</td>
+          <td>Blood Group</td>
+          <td>Mobile Number</td>
+          <td>Alternate Mobile Number</td>
+          <td>Email Id</td>
+          <td>Address</td>
+          <td>Positive Date</td>
+        </tr>        
       </table>
     </div>
   </div>
@@ -116,9 +119,13 @@ tr:nth-child(even) {
   	var donorData = data["data"];  	
   	console.log(donorData);
   	console.log(donorData.length);
+  	 $("td").remove();
   	
   	for (var i = 0; i < donorData.length; i++) {
   		console.log(donorData[i]["alternateNumber"]);
+  		 $("table").append('<tr> <td>'+donorData[i]["fullName"]+'</td> <td>'+donorData[i]["bloodGroup"]+'</td> <td>'+donorData[i]["mobileNumber"]+'</td> <td>'+donorData[i]["alternateNumber"]+'</td> <td>'+donorData[i]["mailId"]+'</td> <td>City/Village : '+donorData[i]["city"]+' Tal : '+donorData[i]["taluka"]+' Pin : '+donorData[i]["pinCode"]+'</td> <td>'+donorData[i]["positiveDate"]+'</td> </tr>")
+  		 
+  		 
   	}
   	
   });
