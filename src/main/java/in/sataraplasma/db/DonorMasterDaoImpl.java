@@ -181,4 +181,12 @@ public class DonorMasterDaoImpl implements DonorMasterDao
 		}
 		return donormasterEntList;
 	}
+	
+	public static  void main(String args[]) {
+		// TODO Auto-generated method stub
+		System.out.println("hii");
+		DonorMasterDaoImpl impl = new  DonorMasterDaoImpl();
+		impl.getAllDonorMasterDetails();
+
+	}
 }

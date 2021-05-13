@@ -10,10 +10,9 @@ import in.sataraplasma.db.DonorMasterDto;
 public class HibernateUtils {
 	
 	private static final SessionFactory sessionFactory;
-	private static final String hibernateFileName ="localhost-Hibernate.cfg.xml";
-	//private static final String hibernateFileName ="oca.aws.Hibernate.cfg.xml";
-	//private static final String hibernateFileName ="oca-staging-GoDaddy.Hibernate.cfg.xml";
-	//private static final String hibernateFileName ="oca-sveri-prod-GoDaddy.Hibernate.cfg.xml";
+	//private static final String hibernateFileName ="localhost-Hibernate.cfg.xml";
+	private static final String hibernateFileName ="freedb-Hibernate.cfg.xml";
+
 	static {
 		try {
 			sessionFactory = new Configuration()
