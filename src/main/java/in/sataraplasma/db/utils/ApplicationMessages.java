@@ -31,7 +31,7 @@ public class ApplicationMessages {
 	public static final String courseAddedSuccessfully = "Course added successfully.";
 	public static final String courseDataNotAvailable = "Course data is not available.";
 	public static final String courseDataUpdatedSuccessfully="Course data updated Successfully.";
-	public static final String courseDataList="Course data list";
+	public static final String donorDataList="Donor data list";
 	public static final String courseDataModifiedSuccessfully="Course Data Modified Successfully";
 	
 	

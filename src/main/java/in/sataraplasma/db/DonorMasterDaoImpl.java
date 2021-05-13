@@ -142,7 +142,8 @@ public class DonorMasterDaoImpl implements DonorMasterDao
 		{
 			session = HibernateUtils.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
-			Query query = session.createQuery(" From DonorMasterDto ");
+			@SuppressWarnings("unchecked")
+			Query<DonorMasterDto> query = session.createQuery(" From DonorMasterDto ");
 			List<DonorMasterDto> donormasterDtoList = query.list();
 			for(DonorMasterDto dto : donormasterDtoList)
 			{

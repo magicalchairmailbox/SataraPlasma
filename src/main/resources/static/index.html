@@ -15,53 +15,7 @@
   <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js '></script>
 </head>
 
-<style>
-  body{
-    background: #feece0;
-    height:100vh;
-    background: linear-gradient(
-180deg
-,#feece0,#ffd086);
-  }
-  .jumbotron{
-    background-color:unset !important;
-  }
-  .btn{
-    color: #fff;
-    background-color: #eb4105;
-    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
-    min-width: 64px;
-    box-sizing: border-box;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-weight: 500;
-    line-height: 1.75;
-    border-radius: 4px;
-    letter-spacing: 0.02857em;
-    text-transform: uppercase;
-  }
-  .btn:hover{
-    background-color: #eb4105 !important;
-    color: #fff !important;
-    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
-  }
-  table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  background-color: white;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color:ghostwhite;
-}
-</style>
+<link href="style.css" rel="stylesheet" />
 
 <body>
 
@@ -77,7 +31,7 @@ tr:nth-child(even) {
   <div class="row m-auto ">   
     <div class="col-12 ">
       <a class="btn" href="registration.html">Donor Registration</a>
-      <a class="btn">Login</a>
+      <a class="btn" href="login.html">Login</a>
     </div>
     <br><br>
     <div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 col-11 m-auto d-flex p-0 pt-5">
@@ -104,8 +58,8 @@ tr:nth-child(even) {
 
   $(document).ready(function() {
     
-  $.get( "https://satara-plasma.herokuapp.com/SataraPlasa/api/v1.0/donor/", function( data ) {
-//	$.get( "http://localhost:8080/SataraPlasa/api/v1.0/donor/", function( data ) { 
+	$.get( "https://satara-plasma.herokuapp.com/SataraPlasa/api/v1.0/donor/", function( data ) {
+	//$.get( "http://localhost:8080/SataraPlasa/api/v1.0/donor/", function( data ) { 
   	console.log(data);
   	
   	var donorData = data["data"];  	

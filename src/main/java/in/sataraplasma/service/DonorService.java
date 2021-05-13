@@ -1,6 +1,7 @@
 package in.sataraplasma.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
@@ -34,8 +35,47 @@ public class DonorService {
 		ResponseEntity responseEntity = new ResponseEntity();
 		List<DonorMasterEnt> donorList = null;
 		donorList = dao.getAllDonorMasterDetails();
+		donorList = donorList.stream().filter(p -> p.getMarkedForDeletion().equals("N")).collect(Collectors.toList());
 		responseEntity.setData(donorList);
-		responseEntity.setMessage(ApplicationMessages.courseDataList);
+		responseEntity.setMessage(ApplicationMessages.donorDataList);
+		responseEntity.setStatus(ApplicationMessages.SUCCESS);
+		return responseEntity;
+	}
+
+	public ResponseEntity getDonorProfile(String mailId, String password) {
+		// TODO Auto-generated method stub
+		ResponseEntity responseEntity = new ResponseEntity();
+		List<DonorMasterEnt> donorList = null;
+		donorList = dao.getAllDonorMasterDetails();
+		List<DonorMasterEnt> donorProfile = donorList.stream().filter(p -> p.getMailId().equals(mailId)
+																	 && p.getPassword().equals(password)
+																	 && p.getMarkedForDeletion().equals("N")
+																		)
+															  .collect(Collectors.toList());															
+		if (donorProfile != null && donorProfile.size() > 0 ) {
+			responseEntity.setData(donorProfile);
+			responseEntity.setMessage(ApplicationMessages.donorDataList);
+			responseEntity.setStatus(ApplicationMessages.SUCCESS);
+		}else
+		{
+			responseEntity.setMessage(ApplicationMessages.donorDataList);
+			responseEntity.setStatus(ApplicationMessages.SUCCESS);
+		}
+		
+		return responseEntity;
+	}
+
+	public ResponseEntity cancelDonorRegistration(int donorId) {
+		// TODO Auto-generated method stub
+		DonorMasterEnt ent = new DonorMasterEnt();
+		ent.setDonorId(donorId);
+		DonorMasterEnt donorEnt = dao.getDonorMasterDetailsByID(ent);
+		if (donorEnt != null) {
+			donorEnt.setMarkedForDeletion("Y");
+			dao.update(donorEnt);
+		}
+		ResponseEntity responseEntity = new ResponseEntity();
+		responseEntity.setMessage(ApplicationMessages.donorDataList);
 		responseEntity.setStatus(ApplicationMessages.SUCCESS);
 		return responseEntity;
 	}
