@@ -90,16 +90,7 @@ tr:nth-child(even) {
           <th>Email Id</th>
           <th>Address</th>
           <th>Positive Date</th>
-        </tr>       
-        <tr>
-          <td>Full Name</td>
-          <td>Blood Group</td>
-          <td>Mobile Number</td>
-          <td>Alternate Mobile Number</td>
-          <td>Email Id</td>
-          <td>Address</td>
-          <td>Positive Date</td>
-        </tr>        
+        </tr>            
       </table>
     </div>
   </div>
@@ -114,6 +105,7 @@ tr:nth-child(even) {
   $(document).ready(function() {
     
   $.get( "https://satara-plasma.herokuapp.com/SataraPlasa/api/v1.0/donor/", function( data ) {
+//	$.get( "http://localhost:8080/SataraPlasa/api/v1.0/donor/", function( data ) { 
   	console.log(data);
   	
   	var donorData = data["data"];  	
