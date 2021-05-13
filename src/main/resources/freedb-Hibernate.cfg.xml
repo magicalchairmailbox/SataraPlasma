@@ -8,8 +8,8 @@
 		<property name="hibernate.connection.username">freedbtech_sp</property>
 		<property name="hibernate.connection.password">ProteasLinkans@2021</property>
 		<property name="hibernate.connection.verifyServerCertificate">false</property>
-    	<!-- <property name="hibernate.connection.requireSSL">true</property>
-    	<property name="hibernate.connection.useSSL">true</property> -->
+    	<property name="hibernate.connection.requireSSL">false</property>
+    	<property name="hibernate.connection.useSSL">false</property> 
     	
 		<property name="hibernate.connection.pool_size">1</property>
 		<property name="hibernate.current_session_context_class">thread</property>
