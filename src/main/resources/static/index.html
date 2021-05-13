@@ -109,12 +109,22 @@ tr:nth-child(even) {
  
 
   $(document).ready(function() {
-    console.log("1");
- 
-
+    
   $.get( "https://satara-plasma.herokuapp.com/SataraPlasa/api/v1.0/donor/", function( data ) {
   	console.log(data);
-});
+  	
+  	var donorData = data["data"];  	
+  	console.log(donorData);
+  	console.log(donorData.length);
+  	
+  	for (var i = 0; i < donorData.length; i++) {
+  		console.log(donorData[i]["alternateNumber"]);
+  	}
+  	
+  });
+  
+  
+
 
     
 });
