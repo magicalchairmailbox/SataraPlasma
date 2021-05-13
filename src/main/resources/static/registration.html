@@ -66,6 +66,59 @@ input{
 }
 </style>
 
+
+ <script>
+         $(document).ready(function() {
+			
+            $("#submitDonorData").click(function(event){
+	            var alternateNumber = document.getElementById("alternateMobNo").value;
+	            var bloodGroup = document.getElementById("bloodGroup").value;
+	            var city = document.getElementById("city").value;
+	            var fullName = document.getElementById("fullName").value;
+	            var mailId = document.getElementById("mailId").value;
+	            var mobileNumber = document.getElementById("mobNo").value;
+	            var password = document.getElementById("password").value;
+	            var pinCode = document.getElementById("pinCode").value;
+	            var positiveDate = document.getElementById("positiveDate").value;
+	            var taluka = document.getElementById("taluka").value;
+            
+	            $.ajax({
+	            	//  url:"http://localhost:8080/SataraPlasa/api/v1.0/donor/",
+	            	url:"https://satara-plasma.herokuapp.com/SataraPlasa/api/v1.0/donor/",	            	
+	            	  type:"POST",
+	            	  data:JSON.stringify({ 
+	                	  "alternateNumber": alternateNumber, 
+	                	   "bloodGroup": bloodGroup, 
+	                	   "city": city, 
+	                	   "country": "INDIA",  
+	                	   "district": "SATARA",  
+	                	   "donorId": 0, 
+	                	   "fullName": fullName,
+	                	   "isAlreadyDonated": "N",
+	                	   "mailId": mailId, 
+	                	   "markedForDeletion": "N", 
+	                	   "mobileNumber": mobileNumber,  
+	                	   "password": password, 
+	                	   "pinCode": pinCode, 
+	                	   "positiveDate": positiveDate, 
+	                	   "state": "MAHARASHTRA", 
+	                	   "taluka": taluka
+	                  }) ,
+	            	  contentType:"application/json; charset=utf-8",
+	            	  dataType:"json",
+	            	  success: function(){
+	            	    console.log("great-success");
+	            	    alert('Thank you ! Registration Successful. ');
+	            	    $(".success-message").show();
+	            	  }
+	            })
+              
+					
+            });
+				
+         });
+  </script>
+
 <body>
 
 <div class="jumbotron text-center">
@@ -106,7 +159,7 @@ input{
 
           <tr>
             <td>Select Positive Date :</td>
-            <td><input type="date" id="taluka" /></td>
+            <td><input type="date" id="positiveDate" /></td>
           </tr>
 
           <tr>
@@ -147,27 +200,20 @@ input{
       </div>
     </div>
     
-    <div class="col-12 pt-5 pb-5 mb-5">
-      <a class="btn">Submit</a>
+    <div class="col-12 pt-5 pb-5 ">
+      <a class="btn" id="submitDonorData">Submit</a>
       <a class="btn" href="index.html">Cancel</a>
     </div>
-    <br><br>
+    <br>
+    <div class="success-message" style="display:none;">
+    	You registration is successful. After plasma donation or any other reason if you want to cancel the registration then login using mobile number and password.
+    	Choose appropriate option.
+    </div>
+    <br>
   </div>
 </div>
 
 </body>
 </html>
 
-<script>
- 
 
-  $(document).ready(function() {
-    $.ajax({
-        url: "http://localhost:8080/SataraPlasa/api/v1.0/donor"
-    }).then(function(data) {
-        console.log(data)
-    });
-});
-
-
-</script>
